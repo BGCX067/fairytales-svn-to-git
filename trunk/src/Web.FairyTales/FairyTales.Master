@@ -1,0 +1,26 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="FairyTales.Master.cs" Inherits="Web.FairyTales.Site1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Fairy Tales<%=VersionNumber%></title>
+    <link rel="stylesheet" href="App_Themes/Default/StyleSheet.css" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" />
+        
+        <div class="canvas">
+            <div class="logo">
+                <img src="App_Themes/Default/Images/Logo.jpg" alt="Fairy Tales Logo"/>
+                <%=VersionNumber%>
+            </div>
+            <div class="line">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+            </div>
+            <%=Disclaimer %>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,4 @@
+open ProjectPage
+enter ProjectInput "Fairy Tales"
+press AddProject
+check ActiveProject "Fairy Tales"

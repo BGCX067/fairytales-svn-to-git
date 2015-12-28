@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Abbreviation>FT</Abbreviation>
+  <Name>Fairy Tales</Name>
+  <Stories>
+    <Story>
+      <Abbreviation>FT-1</Abbreviation>
+      <Name>Create a Project</Name>
+    </Story>
+    <Story>
+      <Abbreviation>FT-2</Abbreviation>
+      <Name>Save to Persistance</Name>
+    </Story>
+    <Story>
+      <Abbreviation>FT-3</Abbreviation>
+      <Name>Load from Persistance</Name>
+    </Story>
+    <Story>
+      <Abbreviation>FT-4</Abbreviation>
+      <Name>Add a Story</Name>
+    </Story>
+    <Story>
+      <Abbreviation>FT-5</Abbreviation>
+      <Name>Prioritize a Story</Name>
+    </Story>
+    <Story>
+      <Abbreviation>FT-6</Abbreviation>
+      <Name>Estimate a Story</Name>
+    </Story>
+    <Story>
+      <Abbreviation>FT-7</Abbreviation>
+      <Name>Print a Story</Name>
+    </Story>
+    <Story>
+      <Abbreviation>FT-8</Abbreviation>
+      <Name>Add Comments to a Story</Name>
+    </Story>
+    <Story>
+      <Abbreviation>FT-9</Abbreviation>
+      <Name>How to Demo A Story</Name>
+    </Story>
+    <Story>
+      <Abbreviation>FT-10</Abbreviation>
+      <Name>Edit A Story</Name>
+    </Story>
+    <Story>
+      <Abbreviation>FT-11</Abbreviation>
+      <Name>Order Story Table by Priority</Name>
+    </Story>
+  </Stories>
+</Project>

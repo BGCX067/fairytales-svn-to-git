@@ -1,0 +1,19 @@
+#summary Persistence and Story Handling
+#labels Phase-Requirements,Phase-Implementation,Phase-QA
+
+From: RoadMap
+
+==Release 1 - Persistence and Story Handling==
+
+||Id||Name||Status||Acceptance Test||Notes||
+||FT-1||Create A Project||Done (Rev 45)||Open Gui. Insert a project name into project textbox. Push Add Project. Verify that *Active Project* now is set, Drop Down contains your project name and that story input is available.||Project Names should be unique||
+||FT-2||Save to Persistence||Done (rev. 48)||Make sure that Fairy Tales can save each project (including stories and data) to a directory on disk in xml.||I want to be able to move/deploy my working copy of FT anywhere. IE, point my web.config to an xml-file somewhere that holds my current projects.||
+||FT-3||Load from Persistence||Done (rev. 48)||Make sure that Fairy Tales loads files from directory (FT-2) on startup.||
+||FT-4||Add a Story||Done (Rev 38)||Open Gui. Make sure that we can't add Stories if no project is present. Add a project (FT-1) and verify that story input now is available. Add a story and the story should be presented in the story table for that project. Xml-files should now hold the new story also.|| A story should also get an abbreviation (FT-1 etc.) that uniquely defines the story.||
+||FT-5||Prioritize a Story||Done (Rev 81)||Open Gui. Add Story. On the story table, dubbleclick that story with the mouse in the "Prioritize" column. Set a value > 0. Hit Enter. Story should now be updated in Xml-file.||Make sure that all priorities are unique. Stories of same priority should not exist. Upon prioritizing a new story, setting a story to an existing priority should put all stories "below" to a lower priority. 0 is default for all "new" stories. Fitting 11 stories into 0-9 in priority is then not feasible. Setting importance to the same as another story should add 1 to the story already at that "position". If that in turn puts that story on the same as another story, rins and repeat.||
+||FT-6||Estimate a Story||Done (Rev 87)||Open Gui. Add Story. On the story table, dubbleclick that story with the mouse in the "Estimate" column. Set a value > 0. Hit Enter. Story should now be updated in Xml-file.||
+||FT-9||How to Demo A Story||Done (Rev 96)||Open Gui. Add Story. On the story table, dubbleclick that story with the mouse in the "How to demo" column. Input a text (similar to this one). Hit Enter. Story should now be updated in Xml-file.||
+||FT-10||Edit A Story||Done (Rev 96)||Open Gui. Add Story. On the story table, dubbleclick that story with the mouse in the "Name" column. Edit the current value. Hit Enter. Story should now be updated in Xml-file.||~~Names should be unique (in a project), therefore check that input is valid~~||
+||FT-11||Order Story Table by Priority||Done (Rev 71)||Open Gui. Add 2 Stories. Add Priorities. (Left) Click the column-header named Priority, and the table should be reordered regarding to desc/asc order of priority.||
+||FT-12||Delete Story||Done (Rev 57)||Open Gui. Add a story. Delete it with the button. Reload gui. Verify that the story is gone. (Can be done in the xml file as well)||
+||FT-23||Mark story as done/in progress/not started/stalled||Done (Rev 96)||Open Gui. Add a story. Ensure that the story is set to NotStarted. Press edit. Use the "drop down" and make sure that you can choose Start, Pause and Done. Also ensure that it shows up in the xml file after update.||

@@ -1,0 +1,76 @@
+#summary Road Map for Fairy Tales
+= [http://code.google.com/p/fairytales/wiki/Release1 Release 1] - Persistence and Story Handling =
+===Project===
+  * ~~Create~~ 
+  * ~~Save to Persistence~~
+  * ~~Load from Persistence~~
+
+===Story===
+  * ~~Add~~
+  * ~~Prioritize~~
+  * ~~Estimate~~
+  * ~~How to Demo~~
+  * ~~Edit (Priority, Estimate, How to demo, Name and Status)~~
+  * ~~Mark as done/in process/waiting/not started~~
+  * ~~Delete~~
+	
+ 
+= =
+= [http://code.google.com/p/fairytales/wiki/Release2 Release 2] - Sprint/Road Map Handling =
+===Break Story to Task===
+===Split Story===
+===Burn Down (Graph)===
+===Sprint Handling===
+  * Assign Stories to sprint
+  * Move story to another project
+  * Sprint Goal
+  * Sprint Duration
+  
+===Story===
+  * Print
+  * Comments
+	
+===Road Map Handling===
+  * Road Maps
+  * Assign Stories to Releases
+  * View Road Map (Graph)
+
+===RSS Feed on Events===		
+  * Add/Update/Delete - Story/Project event
+
+= Release 3 - Logins and Users =
+===Users and roles===
+  # Product Owner : 
+   * Add Stories/ Projects
+   * Prioritize
+   * Add "How to Demo"/Comments
+   * Save	
+   * View Burn Down
+   * Delete/Split Story
+   * Create Road Map
+   * Assign Stories to Release
+   * Delete project
+
+  # Scrum Master
+   * Print
+   * Assign Story To Sprint
+   * Comment
+   * View Burn Down
+
+  # Team Members
+   * Estimate
+   * Comment
+   * View Burn Down
+   * Break Story To Task
+
+  # Authentication
+   * Logins and Passwords
+
+= Horizon =
+===Version Persistence Docs in database of version-system===
+===Product Owner===
+  * Add Customer/Acceptance Test
+===Virtual Scrum Board===
+===Excel support===
+===Automatic update/version control of FT ie. download and install options ===
+===Risk management tools and calculations ===

@@ -1,0 +1,15 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Dev\ConeFabric\FairyTales\trunk\tools\nunit\nunit.exe</StartProgram>
+    <StartWorkingDirectory>C:\Dev\ConeFabric\FairyTales\trunk\src\Tests\bin\Debug\</StartWorkingDirectory>
+    <StartArguments>ConeFabric.FairyTales.Tests.dll</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AutomatedDebug|AnyCPU' ">
+    <StartAction>Project</StartAction>
+    <StartProgram>
+    </StartProgram>
+    <StartWorkingDirectory>
+    </StartWorkingDirectory>
+  </PropertyGroup>
+</Project>

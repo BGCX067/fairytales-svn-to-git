@@ -1,0 +1,21 @@
+#summary Sprint/Road Map Handling
+#labels Phase-Requirements,Phase-Implementation,Phase-QA
+
+From: RoadMap
+
+==Release 2 - Sprint/Road Map Handling==
+
+||Id||Name||Status||Acceptance Test||Notes||
+||FT-7||Print a Story||Not Started||Open Gui. Add Story. On the story table. Click the "Print Story" column. This should generate a new html-page with the story and all it's details on it.||
+||FT-8||Add Comments to a Story||Not Started||Open Gui. Add Story. On the story table, dubbleclick that story with the mouse in the "Comments" column. Input a text. Hit Enter. Story should now be updated in Xml-file.||
+||FT-13||Break story into task||Not Started|| ||
+||FT-14||Split story||Not Started|| ||
+||FT-15||Burn down graph||Not Started|| ||
+||FT-16||Assign stories to a sprint||Not Started|| ||
+||FT-17||Define a sprint goal||Not Started|| ||
+||FT-18||Define sprint duration||Not Started|| ||
+||FT-19||Road Maps||Not Started|| ||
+||FT-20||Assign stories to a release||Not Started|| ||
+||FT-21||View a road map graphically||Not Started|| ||
+||FT-22||Rss/Atom feed, on add/update/delete||Not Started|| ||
+||FT-25||Move story to another project||Not Started|| ||

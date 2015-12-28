@@ -1,0 +1,64 @@
+===============[ Release 1 - Persistence and Story Handling ]===============
+Project:
+	Create [done]
+	Save to Persistence [done]
+	Load from Persistance [done]
+Story:
+	Add [Done]
+	Prioritize [Done]
+	Estimate
+	Print
+	Comments
+	How to Demo
+	Edit [Started]
+	
+Order Story Table by Priority [Done]
+
+===============[ Release 2 - Sprint/Road Map Handling ]===============
+Break Story to Task
+Delete/Split Story
+Burn Down (Graph)
+Sprint Handling
+	- Assign Stories to sprint
+	- Sprint Goal
+	- Sprint Duration
+Story:
+	- Mark as done/in process/waiting/not started
+	
+Road Map Handling
+	- Road Maps
+	- Assign Stories to Releases
+	- View Road Map (Graph)
+		
+===============[ Release 3 - Logins and Users ]===============
+Users and roles
+	- Product Owner : 
+			* Add Stories/ Projects
+			* Prioritize
+			* Add "How to Demo"/Comments
+			* Save	
+			* View Burn Down
+			* Delete/Split Story
+			* Create Road Map
+			* Assign Stories to Release
+	- Scrum Master
+			* Print
+			* Assign Story To Sprint
+			* Comment
+			* View Burn Down
+	- Team Members
+			* Estimate
+			* Comment
+			* View Burn Down
+			* Break Story To Task
+
+Authentication
+	- Logins and Passwords
+			
+===============[ Horizon ]===============
+Version Persistence Docs in database of version-system
+Product Owner:
+	- Add Customer/Acceptance Test
+Virtual Scrum Board
+Sorting of the story table on importance, title, abbreviation etc.
+

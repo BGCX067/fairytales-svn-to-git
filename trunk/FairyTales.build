@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" ?>
+<project name="nant" default="compile" xmlns="http://nant.sf.net/schemas/nant.xsd">
+	<readregistry property="framework.root" key="SOFTWARE\Microsoft\.NETFramework\InstallRoot" hive="LocalMachine" />
+  <property name="target.framework" value="${framework.root}\v3.5" />
+	<property name="company.name" value="ConeFabric" />
+	<property name="project.name" value="FairyTales" />
+	
+	<property name="build.dir" value="build" />
+	<property name="src.dir" value="src" />
+  <property name="debug.dir" value="${build.dir}\Debug" />
+	<property name="test.dir" value="${debug.dir}\Tests\" />
+  <property name="acceptance.console" value="${debug.dir}\Console.FairyTales\${company.name}.${project.name}.${project.name}Console.exe" />
+	<property name="test.output.dir" value="${build.dir}\Reports" />
+  <property name="zip.output.dir" value="zip" />
+	<property name="tool.dir" value="tools" />
+  <property name="web.dir" value="${src.dir}\Web.${project.name}" />
+	<property name="coverage.output.dir" value="${test.output.dir}\Coverage" />
+	<property name="ncover.explorer.extras.dir" value="${tool.dir}\NCoverExplorer.Extras\bin\" />
+	<property name="nantcontrib.dir" value="${tool.dir}\nant-contrib" />
+  <property name="virtual.dir.name" value="ft" />
+  <property name="acceptance.file" value="tests\addProject.test" overwrite="false" />
+
+  <property name="path.fxcop.console" value="${tool.dir}\fxcop\FxCopCmd.exe" />
+  <property name="path.troy.console" value="${tool.dir}\troy\ConeFabric.Troy.TroyConsole.exe" />
+	<property name="path.ncover.console" value="${tool.dir}\ncover\NCover.Console.exe" />
+	<property name="path.nunit.console" value="${tool.dir}\nunit\Nunit-Console.exe" />  
+	<property name="path.ncoverexplorer.console" value="${tool.dir}\NCoverExplorer\NCoverExplorer.Console.exe" />
+	
+	<property name="test.assembly" value="${company.name}.${project.name}.Tests.dll" />
+	<property name="test.results.xml" value="${project.name}.UnitTest.Results.xml" />
+	<property name="coverage.xml.file" value="${project.name}.Coverage.Results.xml" />	
+	
+	<property name="test.nunit.flags" value="/labels /nologo" />
+	
+	<property name="fail.onerror" value="true" />
+	<property name="fail.message"	value="" />
+
+  <target name="load-contrib">
+    <loadtasks assembly="${nantcontrib.dir}/NAnt.Contrib.Tasks.dll" />
+  </target>
+
+  <!-- CLEAN -->
+  <target name="clean" description="Delete Autmated Build Artifacts">
+    <delete dir="${build.dir}" if="${directory::exists(property::get-value('build.dir'))}"/>
+  </target>
+
+	<!-- COMPILE -->
+  <target name="compile.web.site" depends="clean">
+    <exec program="${framework.root}\v2.0.50727\aspnet_compiler.exe">
+      <arg line="-v /${project.name} -p ${web.dir} ${build.dir}\Web" />
+    </exec>
+  </target>
+  
+	<target name="compile" description="Compiles using the AutomatedDebug Configuration">
+
+    <exec program="${target.framework}\MSBuild.exe">
+      <arg value="src\${project.name}.sln" />
+      <arg line="/m /p:Configuration=AutomatedDebug" />
+    </exec>
+	</target>
+	
+	<!-- RUN UNIT TESTS -->
+	<target name="run-unit-tests" description="Run Tests" depends="load-contrib">
+		<mkdir dir="${test.output.dir}" unless="${directory::exists(property::get-value('test.output.dir'))}"/>
+		<exec program="${path.nunit.console}"	workingdir="${test.dir}">
+			<arg value="${company.name}.${project.name}.Tests.dll" />
+			<arg value="/xml:..\..\Reports\${test.results.xml}" />
+		</exec>
+    
+    <nunit2report todir="${test.output.dir}" xslfile="${tool.dir}\nant\Nunit-NoFrame.xsl">
+      <fileset>
+        <include name="${test.output.dir}\*.xml" />
+      </fileset>
+    </nunit2report>
+    
+    <move file="${test.output.dir}\index.html" tofile="${test.output.dir}\unit.tests.html" overwrite="true" />
+	</target>
+  
+	<target name="test" depends="compile, run-unit-tests" description="Compile and Run Tests" />
+
+  <!-- RUN ACCEPTANCE TESTS -->
+  <target name="acceptance-test" depends="clean, compile, run-acceptance-tests" description="Runns acceptance tests" />
+  
+  <target name="run-acceptance-tests">
+    <exec program="cmd.exe" workingdir=".">
+      <arg value="/C" />
+      <arg value="${acceptance.console} &lt; ${acceptance.file}" />
+    </exec>
+  </target>
+
+  <target name="setup-virtual.directory" depends="load-contrib" >
+    <mkiisdir dirpath="${web.dir}" vdirname="${virtual.dir.name}" />
+  </target>
+
+  <target name="remove-virtual.directory" depends="load-contrib" >
+    <deliisdir vdirname="${virtual.dir.name}" />
+  </target>
+
+  <!-- RUN DOXIT -->
+  <target name="doxit" depends="compile" description="Run troy on project">
+    <mkdir dir="${test.output.dir}" unless="${directory::exists(property::get-value('test.output.dir'))}"/>
+    <exec program="${path.troy.console}"	workingdir="${test.dir}" output="${test.output.dir}\${project.name}.core.report">
+      <arg value="${test.assembly}" />
+    </exec>
+  </target>
+  
+  <!-- RUN FXCOP -->
+  <target name="fxcop" depends="compile" description="Run fxcop on project">
+    <mkdir dir="${test.output.dir}" unless="${directory::exists(property::get-value('test.output.dir'))}"/>
+    <exec program="${path.fxcop.console}"	workingdir="." output="${test.output.dir}\${project.name}.fxcop.html">
+      <arg value="/file:${debug.dir}\Core\${company.name}.${project.name}.Core.dll" />
+      <arg value="/consoleXsl:Xml\FxCopReport.xsl" />
+      <arg value="/aXsl" />
+      <arg value="/rule:${tool.dir}\fxcop\Rules\DesignRules.dll" />
+      <arg value="/rule:${tool.dir}\fxcop\Rules\NameingRules.dll" />
+      <arg value="/rule:${tool.dir}\fxcop\Rules\PerformanceRules.dll" />
+      <arg value="/rule:${tool.dir}\fxcop\Rules\PortabilityRules.dll" />
+      <arg value="/rule:${tool.dir}\fxcop\Rules\SecurityRules.dll" />
+      <arg value="/rule:${tool.dir}\fxcop\Rules\UsageRules.dll" />
+      <arg value="/quiet" />
+    </exec>
+  </target>
+
+  <!-- RUN COVERAGE -->
+  <target name="cover" depends="compile" desciption="Code coverage test run.">
+  	<loadtasks assembly="${ncover.explorer.extras.dir}\NCoverExplorer.NAntTasks.dll"/>
+		
+		<mkdir dir="${test.output.dir}" failonerror="false"/>
+		<mkdir dir="${coverage.output.dir}" failonerror="false"/>
+
+		<echo message="Starting NUnit code coverage run..."/>
+		<ncover program="${path.ncover.console}"
+				commandLineExe="${path.nunit.console}"
+				commandLineArgs="${test.dir}\${test.assembly} /xml=&quot;${test.output.dir}\${test.results.xml}&quot; ${test.nunit.flags}"
+				workingDirectory=""
+				coverageFile="${test.output.dir}\${coverage.xml.file}">
+
+			<assemblies basedir="${test.dir}">
+				<include name="${company.name}.Core.dll"/>
+        <include name="${company.name}.Web.Controls.dll"/>
+        <include name="${company.name}.Acceptance.dll"/>
+			</assemblies>
+		</ncover>
+		<call target="util.ncoverexplorer.nant" />
+    <call target="clean.report.xml" />
+  </target>
+
+  <target name="clean.report.xml">
+    <delete>
+      <fileset>
+        <include name="coverage.log" />
+        <include name="${test.output.dir}\Coverage\*.xml" />
+      </fileset>
+    </delete>
+  </target>
+
+  <!-- START WEB SERVER -->
+  <target name="web" description="Runs the webapplication">
+    <exec program="WebDev.WebServer9.0.EXE" basedir="tools\WebServer" workingdir="${src.dir}\Web.FairyTales\">
+      <arg value="/port:666" />
+      <arg value="/path:${directory::get-current-directory()}\${src.dir}\Web.FairyTales\" />
+      <arg value="/vpath:/ft" />
+    </exec>
+  </target>
+
+  <!-- Zipit -->
+  <target name="zipit" depends="load-contrib, clean, compile.web.site, cover, doxit">
+    <mkdir dir="${zip.output.dir}" failonerror="false"/>
+    <version startdate="2007-10-30" buildtype="Increment" path="${web.dir}\build.number"/>
+    <echo message="Ziping deploy: ${project.name}.v${buildnumber.version}.zip" />
+    <zip zipfile="${zip.output.dir}\${project.name}.v${buildnumber.version}.zip">
+      <fileset basedir="${build.dir}" prefix="${project.name}">
+        <include name="**.*" />
+        <exclude name="**/Debug/**" />
+      </fileset>
+    </zip>
+  </target>
+  
+	<target name="util.ncoverexplorer.nant">
+		<echo message="Starting NCoverExplorer report generation..."/>
+		<ncoverexplorer program="${path.ncoverexplorer.console}"
+						projectName="${project.name}"
+						reportType="4"
+						outputDir="${coverage.output.dir}" 
+						xmlReportName="${project.name}.coverage.xml"
+						htmlReportName="${project.name}.coverage.html"
+						mergeFileName="${project.name}.merge.xml"
+						showExcluded="True"
+						satisfactoryCoverage="80" >
+			<fileset>
+				<include name="${test.output.dir}\${coverage.xml.file}"/>
+			</fileset>
+			<exclusions>
+				<exclusion type="Assembly" pattern="*.Tests" />
+				<exclusion type="Namespace" pattern="Web.FairyTales" />
+			</exclusions>
+		</ncoverexplorer>
+	</target>
+</project>

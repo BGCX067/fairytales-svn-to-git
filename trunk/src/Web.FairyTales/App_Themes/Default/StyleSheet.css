@@ -1,0 +1,156 @@
+body
+{
+	font-family: Arial;
+	font-size: xx-small;
+	background-color: White;
+}
+
+.canvas
+{
+	height:600px;
+	text-align: center;		
+	color: Gray;
+	margin-left: auto;
+	margin-right: auto;
+}
+.logo
+{
+
+}
+.line
+{
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	border-top: solid 1px black;	
+}
+.content
+{
+	width: 600px;
+	border-top: solid 1px gray;
+	border-bottom: solid 1px gray;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;	
+	font-size: x-small;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+.content select, .content input, .content textarea
+{
+	font-family: Arial;
+	color:Gray;
+	font-size: xx-small;
+}
+
+.content .projectPanel
+{
+	height: 50px;
+	width: 100%;
+}
+.content .activeProject
+{
+	margin-top: 10px;
+	color: Gray;
+	font-size: large;
+	margin-left: 10px;	
+	padding-bottom: 14px;
+	display: block;
+}
+
+.content .projectPanel select
+{
+	vertical-align: baseline;
+	text-align: right;
+}
+
+.content .storyPanel
+{
+	height: 80%;
+}
+
+.content .storyPanel .storyTable
+{
+	height: 90%;
+	margin-left: 0px;
+	text-align: left;
+}
+
+.content .storyPanel table
+{
+	margin-top: 30px;
+	margin-bottom:30px;	
+	margin-left: 0px;
+	margin-right: 0px;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.content table th, .content table td
+{
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 10px;
+	white-space: nowrap;
+}
+
+.content table th
+{
+	font-weight: bold;
+	text-align: center;
+	border-bottom: 1px solid gray;
+}
+.content table td a
+{
+	color: gray;
+	text-decoration: none;
+}
+
+.content a:hover
+{
+	color: #4FBDB3;
+}
+
+.tablePager span
+{
+	padding-left: 2px;
+	padding-right: 2px;
+	border: 1px solid #AAAAAA;
+	background-color: #EAEAEA;	
+}
+
+.tab
+{
+	padding: 10px;
+}
+
+.tab ol
+{
+	list-style-type: none;
+}
+
+.tab li
+{
+	display: inline;
+	padding: 7px;
+	background: #EAEAEA;
+	border: 1px solid gray;
+}
+
+.notStarted
+{
+}
+.started
+{
+	background-color: #DEDEFF;
+}
+.paused
+{
+	background-color: #DDDDDD;
+}
+.done
+{
+	background-color: #DEFFDE;	
+}

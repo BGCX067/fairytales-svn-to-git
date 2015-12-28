@@ -1,0 +1,110 @@
+Project
+  Abbreviation: FI
+  Name: FT improvements
+  Story:
+      - Abbreviation  : FI-1
+        Name          : Add a marker on the "page" switcher
+        Importance    : 0
+        Estimate      : 0
+        StartTime     : 2008-08-28T09:44:46.9386577+02:00
+        Created       : 2008-08-18T10:03:29.1436+02:00
+        HowToDemo     :
+        StatusChange
+          - To        : Done
+            Date      : 2008-08-28T09:44:46.9386577+02:00
+            Importance: 0
+      - Abbreviation  : FI-2
+        Name          : Make sure that abbreviations are in upper case
+        Importance    : -8
+        Estimate      : 0
+        StartTime     : 2008-08-18T10:04:35.409225+02:00
+        Created       : 2008-08-18T10:03:29.1436+02:00
+        HowToDemo     :
+        StatusChange: 
+          - To        : Done
+            Date      : 2008-08-18T10:04:35.409225+02:00
+            Importance: 0
+      - Abbreviation: FI-3
+        Name          : Make sure that abbreviations don't line break
+        Importance    : 100
+        Estimate      : 0
+        StartTime     : 0001-01-01T00:00:00
+        Created       : 2008-08-18T10:03:29.1436+02:00
+        HowToDemo     :
+        StatusChange  :
+      - Abbreviation  : FI-4
+        Name          : Empty add project-input on project switch (or after project create)
+        Importance    : 0
+        Estimate      : 0
+        StartTime     : 2008-08-20T13:57:26.7244807+02:00
+        Created       : 2008-08-18T10:03:29.1436+02:00
+        HowToDemo     :
+        StatusChange: 
+          - To        : Done
+            Date      : 2008-08-20T13:56:57.1890363+02:00
+            Importance: 0
+          - To        : Started
+            Date      : 2008-08-20T13:57:26.7244807+02:00
+          - To        : Done
+            Date      : 2008-08-20T13:59:17.2950688+02:00
+            Importance: 0
+      - Abbreviation  : FI-5
+        Name          : Don't line break Active Project
+        Importance    : -1
+        Estimate      : 0
+        StartTime     : 2008-11-05T15:38:08.418151+01:00
+        Created       : 2008-08-18T10:03:29.1436+02:00
+        HowToDemo     :
+        StatusChange  : 
+          - To        : Done
+            Date      : 2008-11-05T15:38:08.418151+01:00
+            Importance: 50
+      - Abbreviation  : FI-6
+        Name          : Page switch and "edit" mode on new stories.
+        Importance    : 0
+        Estimate      : 0
+        StartTime     : 0001-01-01T00:00:00
+        Created       : 2008-08-18T10:03:29.1436+02:00
+        HowToDemo     :
+        StatusChange  :
+      - Abbreviation  : FI-13
+        Name          : Make sure that you can't create a project with a starting dot (.)
+        Importance    : -1
+        Estimate      : 0
+        StartTime     : 2008-08-18T16:05:11.2390184+02:00
+        Created       : 2008-08-18T10:03:29.1436+02:00
+        HowToDemo     :
+        StatusChange  : 
+          - To        : Done
+            Date      : 2008-08-20T13:56:57.1890363+02:00
+            Importance: 0
+      - Abbreviation  : FI-14
+        Name          : If using svn-make sure that we have write-access to the project-folder
+        Importance    : 0
+        Estimate      : 0
+        StartTime     : 0001-01-01T00:00:00
+        Created       : 2008-08-18T10:03:29.1436+02:00
+        HowToDemo     :
+        StatusChange  :
+      - Abbreviation  : FI-15
+        Name          : Keep track of when status change
+        Importance    : -1
+        Estimate      : 0
+        StartTime     : 2008-08-18T10:04:19.79985+02:00
+        Created       : 2008-08-18T10:03:29.1436+02:00
+        HowToDemo     :
+        StatusChange  : 
+          - To        : Done
+            Date      : 2008-08-18T10:04:19.79985+02:00
+            Importance: 0
+      - Abbreviation  : FI-16
+        Name          : Done stories should be set to -1 priority (or similar)
+        Importance    : -1
+        Estimate      : 0
+        StartTime     : 2008-11-05T15:37:58.1421734+01:00
+        Created       : 2008-08-28T09:57:03.4343429+02:00
+        HowToDemo     :
+        StatusChange  : 
+          - To        : Done
+            Date      : 2008-11-05T15:37:58.1421734+01:00
+            Importance: 0
